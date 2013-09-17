@@ -98,8 +98,10 @@ public class CustomerJdbcDao implements CustomerDao {
       try (
               Connection connection = JdbcConnection.getConnection();
               PreparedStatement stmt =
-                      connection.prepareStatement("select * from customers where customername = ?");) {
+                      connection.prepareStatement("select * from customers where customername = ? and password = ?");) {
          stmt.setString(1, username);
+         stmt.setString(2, pw);
+         
          ResultSet rs = stmt.executeQuery();
          {
 
@@ -115,11 +117,7 @@ public class CustomerJdbcDao implements CustomerDao {
                customers = new Customer(customername, address, creditcard, password);
 
             }
-            if (customers.getPassWord().equals(pw)) {
-               return customers;
-            } else {
-               return null;
-            }
+           return customers;
          }
       } catch (SQLException ex) {
          throw new RuntimeException(ex);
