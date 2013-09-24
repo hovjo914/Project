@@ -75,11 +75,12 @@ public class CustomerJdbcDao implements CustomerDao {
 
             String username = rs.getString("userName");
             String address = rs.getString("address");
+            String name = rs.getString("name");
             String password = rs.getString("password");
             String creditcard = rs.getString("creditCardDetails");
 
 
-            Customer s = new Customer(username, address, creditcard, password);
+            Customer s = new Customer(username,name, address, creditcard, password);
 
             customers.add(s);
          }
@@ -111,10 +112,11 @@ public class CustomerJdbcDao implements CustomerDao {
 
                String customername = rs.getString("username");
                String address = rs.getString("address");
+               String name = rs.getString("name");
                String creditcard = rs.getString("creditcardDetails");
                String password = rs.getString("password");
 
-               customers = new Customer(customername, address, creditcard, password);
+               customers = new Customer(customername, address,name, creditcard, password);
 
             }
            return customers;
@@ -143,10 +145,11 @@ public class CustomerJdbcDao implements CustomerDao {
 
                String customername = rs.getString("username");
                String address = rs.getString("address");
+               String name = rs.getString("name");
                String creditcard = rs.getString("creditcardDetails");
                String password = rs.getString("password");
 
-               customers = new Customer(customername, address, creditcard, password);
+               customers = new Customer(customername, address,name, creditcard, password);
 
             }
            return customers;

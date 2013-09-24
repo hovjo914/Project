@@ -10,19 +10,19 @@ package domain;
  */
 public class Order {
 
-    private Integer orderID;
+    private Integer customer;
     private Integer date;
 
    public Order(Customer cust) {
-      throw new UnsupportedOperationException("Not yet implemented");
+    
    }
 
     public Integer getOrderID() {
-        return orderID;
+        return customer;
     }
 
     public void setOrderID(Integer orderID) {
-        this.orderID = orderID;
+        this.customer = orderID;
     }
 
     public Integer getDate() {
@@ -37,7 +37,7 @@ public class Order {
     //    return ;
     //  public void addItem(orderItem){
     public Order(Integer orderID, Integer date) {
-        this.orderID = orderID;
+        this.customer = orderID;
         this.date = date;
     }
 }
