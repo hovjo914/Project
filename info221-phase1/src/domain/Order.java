@@ -13,6 +13,10 @@ public class Order {
     private Integer orderID;
     private Integer date;
 
+   public Order(Customer cust) {
+      throw new UnsupportedOperationException("Not yet implemented");
+   }
+
     public Integer getOrderID() {
         return orderID;
     }

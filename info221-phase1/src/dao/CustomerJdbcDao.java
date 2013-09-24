@@ -123,4 +123,8 @@ public class CustomerJdbcDao implements CustomerDao {
          throw new RuntimeException(ex);
       }
    }
+
+   public Customer login(String username, String password) {
+      throw new UnsupportedOperationException("Not yet implemented");
+   }
 }
