@@ -38,9 +38,10 @@ public class AddCustomer extends HttpServlet {
 
       String username = request.getParameter("username");
       String creditCard = request.getParameter("creditCard");
+      String name = request.getParameter("name");
       String address = request.getParameter("address");
       String password = request.getParameter("password");
-      customer = new Customer(username, creditCard, address, password);
+      customer = new Customer(username, creditCard,name, address, password);
       dao.save(customer);
       response.sendRedirect("/customers/");
 

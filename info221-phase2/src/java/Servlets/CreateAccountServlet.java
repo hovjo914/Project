@@ -1,12 +1,10 @@
-package Servlets;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-import dao.CustomerJdbcDao;
+package Servlets;
+
 import domain.Customer;
-import domain.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,14 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author hovjo914
  */
-@WebServlet(name = "logIn", urlPatterns = {"/logIn"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "CreateAccountServlet", urlPatterns = {"/CreateAccountServlet"})
+public class CreateAccountServlet extends HttpServlet {
 
    /**
     * Processes requests for both HTTP
@@ -34,26 +31,18 @@ public class LoginServlet extends HttpServlet {
     * @throws IOException if an I/O error occurs
     */
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
+          throws ServletException, IOException {
+String username = request.getParameter("username");
+String password = request.getParameter("password");
+String name = request.getParameter("name");
+String address = request.getParameter("address");
+String creditCard = request.getParameter("creditCard");
+Customer customer;
+      customer = new Customer(username,password,name,address, creditCard);
 
-      String username = request.getParameter("username");
-      String password = request.getParameter("password");
-      Customer cust = new CustomerJdbcDao().login(username, password);
-// did DAO find a customer with those credentials?
-      if (cust != null) {
-// if so store the customer in the session
-         HttpSession session = request.getSession();
-         session.setAttribute("customer", cust);
-// also create and store an Order that will be used as a shopping cart
-         session.setAttribute("order", new Order(cust));
-// go back to home page
-         response.sendRedirect("/shopping/");
-      } else {
-// no customer has those details so send a 401 error
-         response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
-                 "Log in failed. Try again.");
-      }
-   }
+new CustomerJdbcDAO().save(customer);
+response.sendRedirect(".");
+}
 
    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
    /**
