@@ -15,7 +15,7 @@
       
        <h1>Student Management System</h1>
        
-      <a href="/shopping/logIn.html"> Login</a><br>
+      <a href="/shopping/logIn.jsp"> Login</a><br>
       
 
     </body>

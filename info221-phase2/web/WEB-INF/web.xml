@@ -15,6 +15,6 @@
     </session-config>
     <error-page>
         <error-code>401</error-code>
-        <location>/logIn.html</location>
+        <location>/logIn.jsp</location>
     </error-page>
 </web-app>
