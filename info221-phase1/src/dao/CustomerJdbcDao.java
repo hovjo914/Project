@@ -25,7 +25,7 @@ public class CustomerJdbcDao implements CustomerDao {
               Connection connection = JdbcConnection.getConnection();
               // create the SQL statement
               PreparedStatement stmt = connection.prepareStatement(
-                      "remove from customer (customername, address, creditcard,password ) values (?,?,?,?)");) {
+                      "remove from customers (username, address, creditcarddetails,password ) values (?,?,?,?)");) {
 // copy the data from the student domain object into the statement
          stmt.setString(1, customer.getUserName());
          stmt.setString(2, customer.getAddress());
@@ -47,7 +47,7 @@ public class CustomerJdbcDao implements CustomerDao {
               Connection connection = JdbcConnection.getConnection();
               // create the SQL statement
               PreparedStatement stmt = connection.prepareStatement(
-                      "merge into customer (customername, address, creditcard,password ) values (?,?,?,?)");) {
+                      "merge into customers (usernamename, address, creditcarddetails,password ) values (?,?,?,?)");) {
 // copy the data from the student domain object into the statement
          stmt.setString(1, customer.getUserName());
          stmt.setString(2, customer.getAddress());
@@ -66,7 +66,7 @@ public class CustomerJdbcDao implements CustomerDao {
       try (
               Connection connection = JdbcConnection.getConnection();
               PreparedStatement stmt =
-                      connection.prepareStatement("select * from customers order by customerID");
+                      connection.prepareStatement("select * from customers order by username");
               ResultSet rs = stmt.executeQuery();) {
 
          Collection<Customer> customers = new ArrayList<>();
@@ -76,7 +76,7 @@ public class CustomerJdbcDao implements CustomerDao {
             String username = rs.getString("userName");
             String address = rs.getString("address");
             String password = rs.getString("password");
-            String creditcard = rs.getString("creditcard");
+            String creditcard = rs.getString("creditCardDetails");
 
 
             Customer s = new Customer(username, address, creditcard, password);
@@ -98,7 +98,7 @@ public class CustomerJdbcDao implements CustomerDao {
       try (
               Connection connection = JdbcConnection.getConnection();
               PreparedStatement stmt =
-                      connection.prepareStatement("select * from customers where customername = ? and password = ?");) {
+                      connection.prepareStatement("select * from customers where username = ? and password = ?");) {
          stmt.setString(1, username);
          stmt.setString(2, pw);
          
@@ -109,9 +109,9 @@ public class CustomerJdbcDao implements CustomerDao {
 
             while (rs.next()) {
 
-               String customername = rs.getString("customername");
+               String customername = rs.getString("username");
                String address = rs.getString("address");
-               String creditcard = rs.getString("creditcard");
+               String creditcard = rs.getString("creditcardDetails");
                String password = rs.getString("password");
 
                customers = new Customer(customername, address, creditcard, password);
@@ -124,7 +124,35 @@ public class CustomerJdbcDao implements CustomerDao {
       }
    }
 
-   public Customer login(String username, String password) {
-      throw new UnsupportedOperationException("Not yet implemented");
+   public Customer login(String username, String pw) {
+    Customer customers;
+
+      try (
+              Connection connection = JdbcConnection.getConnection();
+              PreparedStatement stmt =
+                      connection.prepareStatement("select * from customers where username = ? and password = ?");) {
+         stmt.setString(1, username);
+         stmt.setString(2, pw);
+         
+         ResultSet rs = stmt.executeQuery();
+         {
+
+            customers = new Customer();
+
+            while (rs.next()) {
+
+               String customername = rs.getString("username");
+               String address = rs.getString("address");
+               String creditcard = rs.getString("creditcardDetails");
+               String password = rs.getString("password");
+
+               customers = new Customer(customername, address, creditcard, password);
+
+            }
+           return customers;
+         }
+      } catch (SQLException ex) {
+         throw new RuntimeException(ex);
+      }
    }
 }
