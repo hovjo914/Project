@@ -13,7 +13,7 @@
             <fieldset>
                 <legend> Menu </legend>
                 <a href="/shopping/logIn.jsp">Log In</a>
-                <a href="/shopping/Home.jsp">Home Page</a>
+                <a href="/shopping/index.jsp">Home Page</a>
                 <a href="/shopping/restricted/ViewProducts.jsp"> View Products </a>
                 <a href="/shopping/restricted/CheckOut.jsp"> Check Out </a>        --
             </fieldset>
