@@ -1,0 +1,26 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <form action ="/shopping/logIn" method="post">
+            <fieldset>
+                <legend> Menu </legend>
+                <a href="/shopping/logIn.jsp">Log In</a>
+                <a href="/shopping/Home.jsp">Home Page</a>
+                <a href="/shopping/restricted/ViewProducts.jsp"> View Products </a>
+                <a href="/shopping/restricted/CheckOut.jsp"> Check Out </a>        --
+            </fieldset>
+        </form>
+
+    </body>
+</html>
+
+
+
