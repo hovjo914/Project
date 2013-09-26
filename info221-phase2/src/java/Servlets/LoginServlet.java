@@ -41,21 +41,32 @@ public class LoginServlet extends HttpServlet {
       Customer cust = new CustomerJdbcDao().login(username, password);
 // did DAO find a customer with those credentials?
       if (cust != null) {
-// if so store the customer in the session
+         // if so store the customer in the session
          HttpSession session = request.getSession();
          session.setAttribute("customer", cust);
 // also create and store an Order that will be used as a shopping cart
          session.setAttribute("order", new Order(cust));
-// go back to home page
-         response.sendRedirect("/shopping/");
+         // get the requested page from the session
+         String requestedPath =
+                 (String) session.getAttribute("requestedPath");
+         if (requestedPath != null) {
+// if it was set then remove it from the session
+            session.removeAttribute("requestedPath");
+// and redirect to that page
+            response.sendRedirect(requestedPath);
+         } else {
+// if not go to the home page
+            response.sendRedirect("/shopping/");
+         }
+
       } else {
 // no customer has those details so send a 401 error
          response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
                  "Log in failed. Try again.");
+
       }
    }
-
-   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+  // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
    /**
     * Handles the HTTP
     * <code>GET</code> method.

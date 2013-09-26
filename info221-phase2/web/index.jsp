@@ -9,13 +9,14 @@
 <html>
     <head><link rel="stylesheet" type="text/css" href="Style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login Page</title>
     </head>
     <body>
       
-       <h1>Student Management System</h1>
+       <h1> Menu Heading Partial </h1>
+       <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
        
-      <a href="/shopping/logIn.jsp"> Login</a><br>
+<!--      <a href="/shopping/logIn.jsp"> Login</a><br>-->
       
 
     </body>
