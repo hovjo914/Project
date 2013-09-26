@@ -7,6 +7,7 @@
 
     if (customer == null) {
 %>
+
 <a href="/shopping/logIn.jsp">Log In</a>
 
 <%} else {%>

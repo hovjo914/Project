@@ -1,9 +1,9 @@
-package Servlets;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package Servlets;
+
 import dao.CustomerJdbcDao;
 import domain.Customer;
 import domain.Order;
@@ -18,29 +18,21 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author hovjo914
+ * @author Desktop
  */
-@WebServlet(name = "logIn", urlPatterns = {"/logIn"})
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         Customer cust = new CustomerJdbcDao().login(username, password);
 // did DAO find a customer with those credentials?
         if (cust != null) {
+
             // if so store the customer in the session
             HttpSession session = request.getSession();
             session.setAttribute("customer", cust);
@@ -57,18 +49,20 @@ public class LoginServlet extends HttpServlet {
 // and redirect to that page
                 response.sendRedirect(requestedPath);
             } else {
+
 // if not go to the home page
-                response.sendRedirect("/shopping/");
+                response.sendRedirect("/shopping");
             }
 
         } else {
+
 // no customer has those details so send a 401 error
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
                     "Log in failed. Try again.");
         }
     }
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
      * <code>GET</code> method.

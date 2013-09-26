@@ -4,43 +4,28 @@
  */
 package Servlets;
 
+import dao.CustomerJdbcDao;
 import domain.Customer;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author hovjo914
- */
 @WebServlet(name = "CreateAccountServlet", urlPatterns = {"/CreateAccountServlet"})
 public class CreateAccountServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
+        String username = request.getParameter("customername");
         String password = request.getParameter("password");
-        String name = request.getParameter("name");
         String address = request.getParameter("address");
         String creditCard = request.getParameter("creditCard");
         Customer customer;
-        customer = new Customer(username, password, name, address, creditCard);
+        customer = new Customer(username, password, address, creditCard);
 
-        new CustomerJdbcDAO().save(customer);
+        new CustomerJdbcDao().save(customer);
         response.sendRedirect(".");
     }
 

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author hovjo914
  */
-@WebFilter(filterName = "authorisation", urlPatterns = {"/restricted/*"})
+@WebFilter(filterName = "authorisation", urlPatterns = {"/authorisation"})
 public class authorisation implements Filter {
 
     @Override
@@ -55,6 +55,5 @@ public class authorisation implements Filter {
 
     @Override
     public void destroy() {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

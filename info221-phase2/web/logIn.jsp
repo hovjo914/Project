@@ -2,7 +2,8 @@
 To change this template, choose Tools | Templates
 and open the template in the editor.
 -->
-<!DOCTYPE html>
+
+
 
 <%   // changed logIn to LoginServlet
 // get the status code to see why the log in page was requested
@@ -17,28 +18,27 @@ and open the template in the editor.
                 request.getAttribute("javax.servlet.error.message").toString();
     }
 %>
+<!DOCTYPE html>
+
+
 
 
 <html>
     <head>
-        <title></title>
+        <title> </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
 
-        <p><%=message%></p><!-- display the message to the user -->
+        <h3><p><%=message%></p><!-- display the message to the user --></h3>
+
         <form action="LoginServlet" method="post">
-
+            <fieldset>
+                <legend> Login Details </legend>
+                <label> User Name:<input type="text" name="username"></label>
+                <label> Password:<input type="password" name="password"></label>
+                <button type="submit">Login</button>
+            </fieldset>
         </form>
-
-        <fieldset>
-            <legend> Login Details </legend>
-            <label> User Name:<input type="text" name="username"></label>
-            <label> Password:<input type="password" name="password"></label>
-            <button type="submit">Login</button>
-        </fieldset>
-    </form>
-
-
-</body>
+    </body>
 </html>
