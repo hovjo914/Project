@@ -12,10 +12,10 @@
         <title><center>Login Page</center></title>
     </head>
     <body>
-        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
+
         <h1> Menu Heading Partial </h1>
-        <a href ="/shopping/AddCustomer.html"> Add a new Customer </a><br>
-        <a href ="/shopping/restricted/ViewCustomers.jsp"> View All Customers </a>
+        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
+
 
     </body>
 </html>

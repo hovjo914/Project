@@ -10,7 +10,7 @@
 <html><body>
         <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1> Products></h1>
-        <% Collection<Product> products = new ProductJdbcDao().getAll(); %>
+        <% Collection<Product> products = new ProductJdbcDao().getAll();%>
 
         <table>
             <% for (Product product : products) {%>
@@ -18,7 +18,7 @@
                 <td><%= product.getProductID()%></td>
                 <td><%= product.getName()%></td>
                 <td><%= product.getDescription()%></td>
-                <td><%= product.getPrice() %></td>
+                <td><%= product.getPrice()%></td>
                 <td><%= product.getQuantity()%> </td>
 
             </tr> 

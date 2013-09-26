@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>Servlets.Login</servlet-class>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>Servlets.LogOut</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <servlet-class>Servlets.CreateAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAccountServlet</servlet-name>
+        <url-pattern>/CreateAccountServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -16,5 +32,9 @@
     <error-page>
         <error-code>401</error-code>
         <location>/logIn.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/</location>
     </error-page>
 </web-app>

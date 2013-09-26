@@ -22,7 +22,7 @@
                     <th>Customer Name</th>
                     <th>Address</th>
                     <th>password</th>
-                     <th>Credit Card</th>
+                    <th>Credit Card</th>
 
                 </tr>
             </thead>
@@ -31,7 +31,7 @@
                 <% for (Customer customer : customers) {%>
 
                 <tr>
-                    <td><%=customer.getUserName() %></td>
+                    <td><%=customer.getUserName()%></td>
                     <td><%=customer.getAddress()%></td>
                     <td><%=customer.getPassWord()%></td>
                     <td><%=customer.getCreditCard()%></td>
