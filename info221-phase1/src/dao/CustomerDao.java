@@ -6,7 +6,6 @@ package dao;
 
 import domain.Customer;
 import java.util.Collection;
-import java.util.Map;
 
 /**
  *
@@ -21,6 +20,4 @@ public interface CustomerDao {
     Collection<Customer> getAll();
 
     Customer getByUserName(String username, String pw);
-    
-    
 }

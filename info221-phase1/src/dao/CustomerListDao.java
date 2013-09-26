@@ -34,10 +34,7 @@ public class CustomerListDao implements CustomerDao {
 
     @Override
     public Customer getByUserName(String username, String pw) {
-       return customers.get(username);
+        return customers.get(username);
 
     }
-
-  
-   }
-
+}

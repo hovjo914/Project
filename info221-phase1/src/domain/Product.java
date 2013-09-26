@@ -46,7 +46,6 @@ public class Product implements Comparable<Product> {
 
     public Product() {
     }
-    
 
     @Override
     public int hashCode() {

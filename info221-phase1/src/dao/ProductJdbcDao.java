@@ -137,7 +137,7 @@ public class ProductJdbcDao implements ProductDao {
             stmt.setString(1, product.getProductID());
             stmt.executeUpdate();
 
-            
+
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }

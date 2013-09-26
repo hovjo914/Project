@@ -89,19 +89,15 @@ public class DaoTest {
         assertEquals(mouse.getName(), products.getName());
         assertEquals(mouse.getCategory(), products.getCategory());
     }
-    
+
     @Test
-    public void saveProduct(){
+    public void saveProduct() {
         this.mouse.setName("Bumper");
         dao.save(mouse);
         Product product = dao.getById(mouseId);
-        assertEquals("Name should be Bumper", product.getName(),"Bumper");
-        assertEquals("Name should be Bumper", mouse.getName(),"Bumper");
- 
-        
-    }
-    }
-    
-    
-    
+        assertEquals("Name should be Bumper", product.getName(), "Bumper");
+        assertEquals("Name should be Bumper", mouse.getName(), "Bumper");
 
+
+    }
+}

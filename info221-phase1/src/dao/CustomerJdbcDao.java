@@ -25,7 +25,7 @@ public class CustomerJdbcDao implements CustomerDao {
                 Connection connection = JdbcConnection.getConnection();
                 // create the SQL statement
                 PreparedStatement stmt = connection.prepareStatement(
-                "remove from customers (username, address, creditcard,password ) values (?,?,?,?)");) {
+                "remove from customers (customername, address, creditcard,password ) values (?,?,?,?)");) {
 // copy the data from the student domain object into the statement
             stmt.setString(1, customer.getUserName());
             stmt.setString(2, customer.getAddress());
@@ -47,7 +47,7 @@ public class CustomerJdbcDao implements CustomerDao {
                 Connection connection = JdbcConnection.getConnection();
                 // create the SQL statement
                 PreparedStatement stmt = connection.prepareStatement(
-                "merge into customers (usernamename, address, creditcard,password ) values (?,?,?,?)");) {
+                "merge into customers (customername, address, creditcard, password) values (?,?,?,?)");) {
 // copy the data from the student domain object into the statement
             stmt.setString(1, customer.getUserName());
             stmt.setString(2, customer.getAddress());
@@ -66,21 +66,20 @@ public class CustomerJdbcDao implements CustomerDao {
         try (
                 Connection connection = JdbcConnection.getConnection();
                 PreparedStatement stmt =
-                connection.prepareStatement("select * from customers order by username");
+                connection.prepareStatement("select * from customers order by customername");
                 ResultSet rs = stmt.executeQuery();) {
 
             Collection<Customer> customers = new ArrayList<>();
 
             while (rs.next()) {
 
-                String username = rs.getString("userName");
+                String customername = rs.getString("customername");
                 String address = rs.getString("address");
-                String name = rs.getString("name");
                 String password = rs.getString("password");
                 String creditcard = rs.getString("creditCard");
 
 
-                Customer s = new Customer(username, name, address, creditcard, password);
+                Customer s = new Customer(customername, address, creditcard, password);
 
                 customers.add(s);
             }
@@ -93,15 +92,15 @@ public class CustomerJdbcDao implements CustomerDao {
     }
 
     @Override
-    public Customer getByUserName(String username, String pw) {
+    public Customer getByUserName(String name, String pw) {
         Customer customers;
 
         try (
                 Connection connection = JdbcConnection.getConnection();
                 PreparedStatement stmt =
-                connection.prepareStatement("select * from customers where username = ? and password = ?");) {
-            stmt.setString(1, username);
-            stmt.setString(2, pw);
+                connection.prepareStatement("select * from customers where customername = ?");) {
+            stmt.setString(1, name);
+
 
             ResultSet rs = stmt.executeQuery();
             {
@@ -110,13 +109,12 @@ public class CustomerJdbcDao implements CustomerDao {
 
                 while (rs.next()) {
 
-                    String customername = rs.getString("username");
+                    String customername = rs.getString("customername");
                     String address = rs.getString("address");
-                    String name = rs.getString("name");
                     String creditcard = rs.getString("creditcard");
                     String password = rs.getString("password");
 
-                    customers = new Customer(customername, address, name, creditcard, password);
+                    customers = new Customer(customername, address, creditcard, password);
 
                 }
                 return customers;
@@ -131,7 +129,7 @@ public class CustomerJdbcDao implements CustomerDao {
         try (
                 Connection connection = JdbcConnection.getConnection();
                 PreparedStatement stmt =
-                connection.prepareStatement("select * from customers where username = ? and password = ?");) {
+                connection.prepareStatement("select * from customers where customername = ? and password = ?");) {
             stmt.setString(1, username);
             stmt.setString(2, pw);
 
@@ -140,13 +138,12 @@ public class CustomerJdbcDao implements CustomerDao {
 
                 while (rs.next()) {
 
-                    String customername = rs.getString("username");
+                    String customername = rs.getString("customername");
                     String address = rs.getString("address");
-                    String name = rs.getString("name");
                     String creditcard = rs.getString("creditcard");
                     String password = rs.getString("password");
 
-                    customers = new Customer(customername, address, name, creditcard, password);
+                    customers = new Customer(customername, address, creditcard, password);
                 }
                 return customers;
             }

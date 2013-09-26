@@ -135,7 +135,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
    private void btnNewProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProduct1ActionPerformed
-      // TODO add your handling code here:
+       // TODO add your handling code here:
    }//GEN-LAST:event_btnNewProduct1ActionPerformed
     /**
      * @param args the command line arguments

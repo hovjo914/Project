@@ -238,47 +238,47 @@ public class ProductEditorDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-try{
-        product.setProductID(txtID.getText());
-        product.setName(txtName.getText());
-        product.setCategory((String) txtCategory.getSelectedItem());
-        product.setDescription(txtDescription.getText());
-        product.setPrice(Double.parseDouble(txtPrice.getText()));
-        product.setQuantity(Integer.parseInt(txtQuantity.getText()));
+        try {
+            product.setProductID(txtID.getText());
+            product.setName(txtName.getText());
+            product.setCategory((String) txtCategory.getSelectedItem());
+            product.setDescription(txtDescription.getText());
+            product.setPrice(Double.parseDouble(txtPrice.getText()));
+            product.setQuantity(Integer.parseInt(txtQuantity.getText()));
 
-        dao.save(product);
-        this.dispose();
-        
-         //create a validator factory
-         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+            dao.save(product);
+            this.dispose();
 
-         //get a validator from a factory
-         Validator validator = factory.getValidator();
+            //create a validator factory
+            ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 
-         //validate the student object
-         Set<ConstraintViolation<Product>> constraintViolations = validator.validate(product);
+            //get a validator from a factory
+            Validator validator = factory.getValidator();
 
-         //check if any constraints were violated
+            //validate the student object
+            Set<ConstraintViolation<Product>> constraintViolations = validator.validate(product);
+
+            //check if any constraints were violated
 
 
-         if (!constraintViolations.isEmpty()) {
-            StringBuilder message = new StringBuilder();
+            if (!constraintViolations.isEmpty()) {
+                StringBuilder message = new StringBuilder();
 
-            //loop through the violations extracting the message for each
-            for (ConstraintViolation<Product> violation : constraintViolations) {
-               message.append(violation.getMessage()).append("\n");
+                //loop through the violations extracting the message for each
+                for (ConstraintViolation<Product> violation : constraintViolations) {
+                    message.append(violation.getMessage()).append("\n");
+                }
+
+                //show a message box to the user with all the messages
+                JOptionPane.showMessageDialog(this, message.toString(), "Input Problem", JOptionPane.WARNING_MESSAGE);
+                //exit the save method since the data is not valid
+
+                return;
             }
-
-            //show a message box to the user with all the messages
-            JOptionPane.showMessageDialog(this, message.toString(), "Input Problem", JOptionPane.WARNING_MESSAGE);
-            //exit the save method since the data is not valid
-
-            return;
-         }
-         this.dispose();
-      } catch (DAOException ex) {
-         throw new DAOException(ex.getMessage(), ex);
-      }
+            this.dispose();
+        } catch (DAOException ex) {
+            throw new DAOException(ex.getMessage(), ex);
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoryActionPerformed

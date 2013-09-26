@@ -11,7 +11,6 @@ import domain.Order;
  * @author Desktop
  */
 public interface OrderDao {
-       
+
     public void save(Order order);
-  
 }

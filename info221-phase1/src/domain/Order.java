@@ -13,9 +13,8 @@ public class Order {
     private Integer customer;
     private Integer date;
 
-   public Order(Customer cust) {
-    
-   }
+    public Order(Customer cust) {
+    }
 
     public Integer getOrderID() {
         return customer;

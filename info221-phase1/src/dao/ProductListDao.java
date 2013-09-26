@@ -29,7 +29,7 @@ public class ProductListDao implements ProductDao {
         products.put(product.getProductID(), product);
         categories.add(product.getCategory());
     }
-    
+
     @Override
     public Collection<Product> getAll() {
         return products.values();

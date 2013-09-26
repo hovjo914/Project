@@ -10,36 +10,37 @@ package domain;
  */
 public class Customer {
 
-    private String userName;
-    private String name;
+    private String customername;
+ 
     private String password;
     private String address;
     private String creditCard;
 
-    public Customer(String userName, String password,String name, String address, String creditCard) {
-        this.userName = userName;
+    public Customer(String userName, String password, String address, String creditCard) {
+        this.customername = userName;
         this.password = password;
         this.address = address;
         this.creditCard = creditCard;
-        this.name=name;
+      
     }
 
     public Customer() {
     }
 
     public String getUserName() {
-        return userName;
-    }
-    
-     public String getName() {
-        return name;
+        return customername;
     }
 
-     public void setName(String userName) {
-        this.name = name;
+    public String getName() {
+        return customername;
     }
-    public void setUserName(String userName) {
-        this.userName = userName;
+
+    public void setName(String customername) {
+        this.customername = customername;
+    }
+
+    public void setUserName(String customername) {
+        this.customername = customername;
     }
 
     public String getPassWord() {
