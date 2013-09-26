@@ -15,7 +15,7 @@
         <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
         <h1> Menu Heading Partial </h1>
         <a href ="/shopping/AddCustomer.html"> Add a new Customer </a><br>
-        <a href ="/shopping/ViewCustomers.jsp"> View All Customers </a>
+        <a href ="/shopping/restricted/ViewCustomers.jsp"> View All Customers </a>
 
     </body>
 </html>

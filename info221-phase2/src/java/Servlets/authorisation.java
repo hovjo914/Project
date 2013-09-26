@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author hovjo914
  */
-@WebFilter(filterName = "authorisation", urlPatterns = {"/authorisation"})
+@WebFilter(filterName = "authorisation", urlPatterns = {"/restricted/*"})
 public class authorisation implements Filter {
 
     @Override
