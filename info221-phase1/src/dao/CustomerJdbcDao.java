@@ -18,144 +18,140 @@ import java.util.Collection;
  */
 public class CustomerJdbcDao implements CustomerDao {
 
-   @Override
-   public void delete(Customer customer) {
-      try (
-              // get connection to database
-              Connection connection = JdbcConnection.getConnection();
-              // create the SQL statement
-              PreparedStatement stmt = connection.prepareStatement(
-                      "remove from customers (username, address, creditcard,password ) values (?,?,?,?)");) {
+    @Override
+    public void delete(Customer customer) {
+        try (
+                // get connection to database
+                Connection connection = JdbcConnection.getConnection();
+                // create the SQL statement
+                PreparedStatement stmt = connection.prepareStatement(
+                "remove from customers (username, address, creditcard,password ) values (?,?,?,?)");) {
 // copy the data from the student domain object into the statement
-         stmt.setString(1, customer.getUserName());
-         stmt.setString(2, customer.getAddress());
-         stmt.setString(3, customer.getCreditCard());
-         stmt.setString(4, customer.getPassWord());
+            stmt.setString(1, customer.getUserName());
+            stmt.setString(2, customer.getAddress());
+            stmt.setString(3, customer.getCreditCard());
+            stmt.setString(4, customer.getPassWord());
 
 // execute the statement
-         stmt.executeUpdate();
-      } catch (SQLException ex) {
-         throw new RuntimeException(ex);
-      }
-   }
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
-   @Override
-   public void save(Customer customer) {
+    @Override
+    public void save(Customer customer) {
 
-      try (
-              // get connection to database
-              Connection connection = JdbcConnection.getConnection();
-              // create the SQL statement
-              PreparedStatement stmt = connection.prepareStatement(
-                      "merge into customers (usernamename, address, creditcard,password ) values (?,?,?,?)");) {
+        try (
+                // get connection to database
+                Connection connection = JdbcConnection.getConnection();
+                // create the SQL statement
+                PreparedStatement stmt = connection.prepareStatement(
+                "merge into customers (usernamename, address, creditcard,password ) values (?,?,?,?)");) {
 // copy the data from the student domain object into the statement
-         stmt.setString(1, customer.getUserName());
-         stmt.setString(2, customer.getAddress());
-         stmt.setString(3, customer.getCreditCard());
-         stmt.setString(4, customer.getPassWord());
+            stmt.setString(1, customer.getUserName());
+            stmt.setString(2, customer.getAddress());
+            stmt.setString(3, customer.getCreditCard());
+            stmt.setString(4, customer.getPassWord());
 
 // execute the statement
-         stmt.executeUpdate();
-      } catch (SQLException ex) {
-         throw new RuntimeException(ex);
-      }
-   }
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 
-   @Override
-   public Collection<Customer> getAll() {
-      try (
-              Connection connection = JdbcConnection.getConnection();
-              PreparedStatement stmt =
-                      connection.prepareStatement("select * from customers order by username");
-              ResultSet rs = stmt.executeQuery();) {
+    @Override
+    public Collection<Customer> getAll() {
+        try (
+                Connection connection = JdbcConnection.getConnection();
+                PreparedStatement stmt =
+                connection.prepareStatement("select * from customers order by username");
+                ResultSet rs = stmt.executeQuery();) {
 
-         Collection<Customer> customers = new ArrayList<>();
-
-         while (rs.next()) {
-
-            String username = rs.getString("userName");
-            String address = rs.getString("address");
-            String name = rs.getString("name");
-            String password = rs.getString("password");
-            String creditcard = rs.getString("creditCard");
-
-
-            Customer s = new Customer(username, name, address, creditcard, password);
-
-            customers.add(s);
-         }
-         return customers;
-
-      } catch (SQLException ex) {
-         throw new RuntimeException(ex);
-      }
-
-   }
-
-   @Override
-   public Customer getByUserName(String username, String pw) {
-      Customer customers;
-
-      try (
-              Connection connection = JdbcConnection.getConnection();
-              PreparedStatement stmt =
-                      connection.prepareStatement("select * from customers where username = ? and password = ?");) {
-         stmt.setString(1, username);
-         stmt.setString(2, pw);
-
-         ResultSet rs = stmt.executeQuery();
-         {
-
-            customers = new Customer();
+            Collection<Customer> customers = new ArrayList<>();
 
             while (rs.next()) {
 
-               String customername = rs.getString("username");
-               String address = rs.getString("address");
-               String name = rs.getString("name");
-               String creditcard = rs.getString("creditcard");
-               String password = rs.getString("password");
+                String username = rs.getString("userName");
+                String address = rs.getString("address");
+                String name = rs.getString("name");
+                String password = rs.getString("password");
+                String creditcard = rs.getString("creditCard");
 
-               customers = new Customer(customername, address, name, creditcard, password);
 
+                Customer s = new Customer(username, name, address, creditcard, password);
+
+                customers.add(s);
             }
             return customers;
-         }
-      } catch (SQLException ex) {
-         throw new RuntimeException(ex);
-      }
-   }
 
-   public Customer login(String username, String pw) {
-      Customer customers = null;
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
 
-      try (
-              Connection connection = JdbcConnection.getConnection();
-              PreparedStatement stmt =
-                      connection.prepareStatement("select * from customers where username = ? and password = ?");) {
-         stmt.setString(1, username);
-         stmt.setString(2, pw);
+    }
 
-         ResultSet rs = stmt.executeQuery();
-         {
+    @Override
+    public Customer getByUserName(String username, String pw) {
+        Customer customers;
 
-           
+        try (
+                Connection connection = JdbcConnection.getConnection();
+                PreparedStatement stmt =
+                connection.prepareStatement("select * from customers where username = ? and password = ?");) {
+            stmt.setString(1, username);
+            stmt.setString(2, pw);
 
-            while (rs.next()) {
+            ResultSet rs = stmt.executeQuery();
+            {
 
-               String customername = rs.getString("username");
-               String address = rs.getString("address");
-               String name = rs.getString("name");
-               String creditcard = rs.getString("creditcard");
-               String password = rs.getString("password");
+                customers = new Customer();
 
-               customers = new Customer(customername, address, name, creditcard, password);
+                while (rs.next()) {
 
+                    String customername = rs.getString("username");
+                    String address = rs.getString("address");
+                    String name = rs.getString("name");
+                    String creditcard = rs.getString("creditcard");
+                    String password = rs.getString("password");
+
+                    customers = new Customer(customername, address, name, creditcard, password);
+
+                }
+                return customers;
             }
-            return customers;
-         }
-      } catch (SQLException ex) {
-         throw new RuntimeException(ex);
-      }
-   }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public Customer login(String username, String pw) {
+        Customer customers = null;
+        try (
+                Connection connection = JdbcConnection.getConnection();
+                PreparedStatement stmt =
+                connection.prepareStatement("select * from customers where username = ? and password = ?");) {
+            stmt.setString(1, username);
+            stmt.setString(2, pw);
+
+            ResultSet rs = stmt.executeQuery();
+            {
+
+                while (rs.next()) {
+
+                    String customername = rs.getString("username");
+                    String address = rs.getString("address");
+                    String name = rs.getString("name");
+                    String creditcard = rs.getString("creditcard");
+                    String password = rs.getString("password");
+
+                    customers = new Customer(customername, address, name, creditcard, password);
+                }
+                return customers;
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }
