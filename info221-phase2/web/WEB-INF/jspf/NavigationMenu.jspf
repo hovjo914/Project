@@ -17,6 +17,7 @@
 <a href="/shopping/LogOut"> Log Out </a>  <br> 
 <a href="/shopping/restricted/CreateAccount.jsp"> Add a new Customer </a><br>
 <a href="/shopping/restricted/ViewCustomers.jsp"> View All Customers </a><br>
+<a href="/shopping/restricted/AddProduct.jsp"> Add a new Product </a><br>
 
 <%}%>
 

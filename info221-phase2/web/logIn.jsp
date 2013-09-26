@@ -26,8 +26,9 @@ and open the template in the editor.
 <html>
     <head>
         <title> </title>
+        <link rel="stylesheet" type="text/css" href="Style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
+         </head>
     <body>
 
         <h3><p><%=message%></p><!-- display the message to the user --></h3>

@@ -19,6 +19,10 @@
             </fieldset>
         </form>
 
+        <br>
+        <br>
+        <br>
+        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
 
     </body>
 </html>

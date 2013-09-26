@@ -7,23 +7,46 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import ="dao.*, domain.*, java.util.*"%>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="Style.css">
 <html><body>
-        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
-        <h1> Products></h1>
+        
+        <h1> Products</h1>
         <% Collection<Product> products = new ProductJdbcDao().getAll();%>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
 
-        <table>
-            <% for (Product product : products) {%>
-            <tr>
-                <td><%= product.getProductID()%></td>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for (Product product : products) {%>
+
+                <tr>
+                 <td><%= product.getProductID()%></td>
                 <td><%= product.getName()%></td>
                 <td><%= product.getDescription()%></td>
+                 <td><%= product.getCategory()%></td>
                 <td><%= product.getPrice()%></td>
                 <td><%= product.getQuantity()%> </td>
+                </tr>
 
-            </tr> 
-            <%}%>
+                <% }%>
 
+            </tbody>
         </table>
+      
+            
+             <br>
+        <br>
+        <br>
+        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
+
     </body>
 </html>

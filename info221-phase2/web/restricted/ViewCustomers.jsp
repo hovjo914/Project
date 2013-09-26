@@ -5,6 +5,7 @@
 <html>
 
     <head>
+        <link rel="stylesheet" type="text/css" href="Style.css">
         <title>Customer Management System</title>
     </head>
 
@@ -41,6 +42,10 @@
 
             </tbody>
         </table>
+                 <br>
+        <br>
+        <br>
+        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
 
     </body>
 </html>
