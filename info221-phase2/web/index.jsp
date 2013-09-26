@@ -9,15 +9,12 @@
 <html>
     <head><link rel="stylesheet" type="text/css" href="Style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Page</title>
+        <title><center>Login Page</center></title>
     </head>
     <body>
-      
-       <h1> Menu Heading Partial </h1>
-       <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
-       
-<!--      <a href="/shopping/logIn.jsp"> Login</a><br>-->
-      
 
+        <h1> Menu Heading Partial </h1>
+        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
+  
     </body>
 </html>

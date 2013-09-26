@@ -20,43 +20,41 @@ import javax.servlet.http.HttpSession;
  *
  * @author hovjo914
  */
-@WebFilter(filterName = "authorisation", urlPatterns = {"/*"})
+@WebFilter(filterName = "authorisation", urlPatterns = {"/restricted/*"})
 public class authorisation implements Filter {
 
-   @Override
-   public void init(FilterConfig filterConfig) throws ServletException {
-   }
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
-   @Override
-   public void doFilter(ServletRequest request,
-           ServletResponse response,
-           FilterChain chain)
-           throws IOException, ServletException {
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
 // cast the request and reponse objects into something useful
-      HttpServletRequest httpRequest = (HttpServletRequest) request;
-      HttpServletResponse httpResponse =
-              (HttpServletResponse) response;
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse =
+                (HttpServletResponse) response;
 // get the session
-      HttpSession session = httpRequest.getSession();
+        HttpSession session = httpRequest.getSession();
 // is the customer object in the session?
-      if (session.getAttribute("customer") == null) {
+        if (session.getAttribute("customer") == null) {
 // get the requested page
-         String requestedPath = httpRequest.getRequestURI();
+            String requestedPath = httpRequest.getRequestURI();
 // save it so that it can be used later
-         session.setAttribute("requestedPath", requestedPath);
+            session.setAttribute("requestedPath", requestedPath);
 
 // send back an UNAUTHORIZED response and a nice error message
-         httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED,
-                 "You need to log in to view that page.");
+            httpResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED,
+                    "You need to log in to view that page.");
 
-      } else {
+        } else {
 // user already logged in so pass the request on unmodified
-         chain.doFilter(request, response);
-      }
-   }
+            chain.doFilter(request, response);
+        }
+    }
 
-   @Override
-   public void destroy() {
-      throw new UnsupportedOperationException("Not supported yet.");
-   }
+    @Override
+    public void destroy() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

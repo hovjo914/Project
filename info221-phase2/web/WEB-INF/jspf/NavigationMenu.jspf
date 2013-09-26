@@ -3,18 +3,14 @@
 <%@ page pageEncoding="UTF-8" %>
 
 <%
-Customer customer = (Customer)session.getAttribute("customer");
+    Customer customer = (Customer) session.getAttribute("customer");
 
-
-if(customer == null) {
+    if (customer == null) {
 %>
-
 <a href="/shopping/logIn.jsp">Log In</a>
-       
-       
-<%} else { %>
 
-<a href="/shopping/logIn.jsp">Log In</a>
+<%} else {%>
+
 <a href="/shopping/index.jsp">Home Page</a>
 <a href="/shopping/restricted/ViewProducts.jsp"> View Products </a>
 <a href="/shopping/restricted/CheckOut.jsp"> Check Out </a>        

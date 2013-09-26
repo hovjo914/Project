@@ -23,87 +23,89 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "logIn", urlPatterns = {"/logIn"})
 public class LoginServlet extends HttpServlet {
 
-   /**
-    * Processes requests for both HTTP
-    * <code>GET</code> and
-    * <code>POST</code> methods.
-    *
-    * @param request servlet request
-    * @param response servlet response
-    * @throws ServletException if a servlet-specific error occurs
-    * @throws IOException if an I/O error occurs
-    */
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
+    /**
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-      String username = request.getParameter("username");
-      String password = request.getParameter("password");
-      Customer cust = new CustomerJdbcDao().login(username, password);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Customer cust = new CustomerJdbcDao().login(username, password);
 // did DAO find a customer with those credentials?
-      if (cust != null) {
-         // if so store the customer in the session
-         HttpSession session = request.getSession();
-         session.setAttribute("customer", cust);
+        if (cust != null) {
+            // if so store the customer in the session
+            HttpSession session = request.getSession();
+            session.setAttribute("customer", cust);
 // also create and store an Order that will be used as a shopping cart
-         session.setAttribute("order", new Order(cust));
-         // get the requested page from the session
-         String requestedPath =
-                 (String) session.getAttribute("requestedPath");
-         if (requestedPath != null) {
+            session.setAttribute("order", new Order(cust));
+            // get the requested page from the session
+            String requestedPath =
+                    (String) session.getAttribute("requestedPath");
+
+            if (requestedPath != null) {
+
 // if it was set then remove it from the session
-            session.removeAttribute("requestedPath");
+                session.removeAttribute("requestedPath");
 // and redirect to that page
-            response.sendRedirect(requestedPath);
-         } else {
+                response.sendRedirect(requestedPath);
+            } else {
 // if not go to the home page
-            response.sendRedirect("/shopping/");
-         }
+                response.sendRedirect("/shopping/");
+            }
 
-      } else {
+        } else {
 // no customer has those details so send a 401 error
-         response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
-                 "Log in failed. Try again.");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
+                    "Log in failed. Try again.");
+        }
+    }
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
-      }
-   }
-  // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-   /**
-    * Handles the HTTP
-    * <code>GET</code> method.
-    *
-    * @param request servlet request
-    * @param response servlet response
-    * @throws ServletException if a servlet-specific error occurs
-    * @throws IOException if an I/O error occurs
-    */
-   @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
-      processRequest(request, response);
-   }
+    /**
+     * Handles the HTTP
+     * <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
-   /**
-    * Handles the HTTP
-    * <code>POST</code> method.
-    *
-    * @param request servlet request
-    * @param response servlet response
-    * @throws ServletException if a servlet-specific error occurs
-    * @throws IOException if an I/O error occurs
-    */
-   @Override
-   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
-      processRequest(request, response);
-   }
+    /**
+     * Handles the HTTP
+     * <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
 
-   /**
-    * Returns a short description of the servlet.
-    *
-    * @return a String containing servlet description
-    */
-   @Override
-   public String getServletInfo() {
-      return "Short description";
-   }// </editor-fold>
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 }
