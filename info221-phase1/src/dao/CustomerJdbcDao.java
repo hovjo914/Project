@@ -80,7 +80,7 @@ public class CustomerJdbcDao implements CustomerDao {
             String creditcard = rs.getString("creditCard");
 
 
-            Customer s = new Customer(username,name, address, creditcard, password);
+            Customer s = new Customer(username, name, address, creditcard, password);
 
             customers.add(s);
          }
@@ -102,7 +102,7 @@ public class CustomerJdbcDao implements CustomerDao {
                       connection.prepareStatement("select * from customers where username = ? and password = ?");) {
          stmt.setString(1, username);
          stmt.setString(2, pw);
-         
+
          ResultSet rs = stmt.executeQuery();
          {
 
@@ -116,10 +116,10 @@ public class CustomerJdbcDao implements CustomerDao {
                String creditcard = rs.getString("creditcard");
                String password = rs.getString("password");
 
-               customers = new Customer(customername, address,name, creditcard, password);
+               customers = new Customer(customername, address, name, creditcard, password);
 
             }
-           return customers;
+            return customers;
          }
       } catch (SQLException ex) {
          throw new RuntimeException(ex);
@@ -127,7 +127,7 @@ public class CustomerJdbcDao implements CustomerDao {
    }
 
    public Customer login(String username, String pw) {
-    Customer customers;
+      Customer customers = null;
 
       try (
               Connection connection = JdbcConnection.getConnection();
@@ -135,11 +135,11 @@ public class CustomerJdbcDao implements CustomerDao {
                       connection.prepareStatement("select * from customers where username = ? and password = ?");) {
          stmt.setString(1, username);
          stmt.setString(2, pw);
-         
+
          ResultSet rs = stmt.executeQuery();
          {
 
-            customers = new Customer();
+           
 
             while (rs.next()) {
 
@@ -149,10 +149,10 @@ public class CustomerJdbcDao implements CustomerDao {
                String creditcard = rs.getString("creditcard");
                String password = rs.getString("password");
 
-               customers = new Customer(customername, address,name, creditcard, password);
+               customers = new Customer(customername, address, name, creditcard, password);
 
             }
-           return customers;
+            return customers;
          }
       } catch (SQLException ex) {
          throw new RuntimeException(ex);
