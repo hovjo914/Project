@@ -11,7 +11,6 @@ package domain;
 public class Customer {
 
     private String customername;
- 
     private String password;
     private String address;
     private String creditCard;
@@ -21,7 +20,7 @@ public class Customer {
         this.password = password;
         this.address = address;
         this.creditCard = creditCard;
-      
+
     }
 
     public Customer() {

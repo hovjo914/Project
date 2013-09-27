@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package domain;
+
 import java.util.Date;
 
 /**

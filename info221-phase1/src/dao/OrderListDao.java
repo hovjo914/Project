@@ -10,13 +10,9 @@ import domain.Order;
  *
  * @author Desktop
  */
-public class OrderListDao implements OrderDao{
+public class OrderListDao implements OrderDao {
 
     @Override
     public void save(Order order) {
-    
-        
-        
     }
-    
 }
