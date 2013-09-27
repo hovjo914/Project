@@ -5,7 +5,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="/shopping/Style.css">
+        <link rel="stylesheet" type="text/css" href="/shopping/style.css">
         <title>Customer Management System</title>
     </head>
 
@@ -17,7 +17,7 @@
                     new CustomerJdbcDao().getAll();
         %>
 
-        <table border="1">
+        <table id="productmenu" border="1">
             <thead>
                 <tr>
                     <th>Customer Name</th>

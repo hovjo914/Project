@@ -11,6 +11,7 @@
 <a href="/shopping/logIn.jsp">Log In</a>
 
 <%} else {%>
+<link rel="stylesheet" type="text/css" href="/shopping/style.css">
 <ul>
 <li><a href="/shopping/index.jsp">Home Page</a><br></li>
 <li><a href="/shopping/restricted/ViewProducts.jsp"> View Products </a><br></li>

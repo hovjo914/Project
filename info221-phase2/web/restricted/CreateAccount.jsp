@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-    <head><link rel="stylesheet" type="text/css" href="/shopping/Style.css">
+    <head><link rel="stylesheet" type="text/css" href="/shopping/style.css">
         <title>Customer System</title></head>
     <body>
         <h1>Enter a new Customer</h1>

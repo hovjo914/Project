@@ -26,7 +26,7 @@ and open the template in the editor.
 <html>
     <head>
         <title> </title>
-        <link rel="stylesheet" type="text/css" href="Style.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          </head>
     <body>
