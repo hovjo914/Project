@@ -11,13 +11,13 @@
 <a href="/shopping/logIn.jsp">Log In</a>
 
 <%} else {%>
-
-<a href="/shopping/index.jsp">Home Page</a><br>
-<a href="/shopping/restricted/ViewProducts.jsp"> View Products </a><br>
-<a href="/shopping/LogOut"> Log Out </a>  <br> 
-<a href="/shopping/restricted/CreateAccount.jsp"> Add a new Customer </a><br>
-<a href="/shopping/restricted/ViewCustomers.jsp"> View All Customers </a><br>
-<a href="/shopping/restricted/AddProduct.jsp"> Add a new Product </a><br>
-
+<ul>
+<li><a href="/shopping/index.jsp">Home Page</a><br></li>
+<li><a href="/shopping/restricted/ViewProducts.jsp"> View Products </a><br></li>
+<li><a href="/shopping/LogOut"> Log Out </a>  <br></li> 
+<li><a href="/shopping/restricted/CreateAccount.jsp"> Add a new Customer </a><br></li>
+<li><a href="/shopping/restricted/ViewCustomers.jsp"> View All Customers </a><br></li>
+<li><a href="/shopping/restricted/AddProduct.jsp"> Add a new Product </a><br></li>
+</ul>
 <%}%>
 

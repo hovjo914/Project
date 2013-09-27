@@ -5,7 +5,7 @@
 <html>
 
     <head>
-        <link rel="stylesheet" type="text/css" href="Style.css">
+        <link rel="stylesheet" type="text/css" href="/shopping/Style.css">
         <title>Customer Management System</title>
     </head>
 

@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import ="dao.*, domain.*, java.util.*"%>
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="Style.css">
+<link rel="stylesheet" type="text/css" href="/shopping/Style.css">
 <html><body>
         
         <h1> Products</h1>
