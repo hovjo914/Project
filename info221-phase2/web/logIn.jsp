@@ -41,5 +41,6 @@ and open the template in the editor.
                 <button type="submit">Login</button>
             </fieldset>
         </form>
+        <p> Create a new <a href="/shopping/CreateAccount.jsp">new Account</a></p>
     </body>
 </html>

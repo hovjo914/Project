@@ -8,17 +8,18 @@
     if (customer == null) {
 %>
 
-<a href="/shopping/logIn.jsp">Log In</a>
+<a href="/shopping/logIn.jsp"><button type="button">Log In</a></button></li>
 
+<
 <%} else {%>
+
 <link rel="stylesheet" type="text/css" href="/shopping/style.css">
-<ul>
-<li><a href="/shopping/index.jsp">Home Page</a><br></li>
-<li><a href="/shopping/restricted/ViewProducts.jsp"> View Products </a><br></li>
-<li><a href="/shopping/LogOut"> Log Out </a>  <br></li> 
-<li><a href="/shopping/restricted/CreateAccount.jsp"> Add a new Customer </a><br></li>
-<li><a href="/shopping/restricted/ViewCustomers.jsp"> View All Customers </a><br></li>
-<li><a href="/shopping/restricted/AddProduct.jsp"> Add a new Product </a><br></li>
-</ul>
+<a href="/shopping/index.jsp"><button type="button">Home Page</button></a><br>
+<a href="/shopping/restricted/ViewProductList.jsp"><button type="button"> View Products</button> </a><br>
+<a href="/shopping/restricted/CheckOut.jsp"><button type="button">Check Out</button></a><br>
+<a href="/shopping/LogOut"><button type="button"> Log Out</button> </a></li><br>
+
+
+
 <%}%>
 

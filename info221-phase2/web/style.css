@@ -1,44 +1,39 @@
 @import url("forms.css");  /* import forms layout */
 *
-body
-{
+
+ul{position:fixed;
+   left:5px;
+}
+a{ position:fixed;
+   
+   left:50px;
+   font-size:17px;
+   color:white;
+}
+#producttable{
+    position: absolute;
+    left:200px;
+    top: 170px;
+   
+   
+    width:500px;
+   
+}
+#b{
+    width:100px;
+    text-align:right;
+}
+productid{
+    width:50px;
+}
+
+body{
     background-color:rgb(45,0,0);
     color:white;
     text-align: center;
     font-size: 17px;
 
 }
-ul{position:fixed;
-   left:5px;
-
-}
-a{
-    position:fixed;
-    left:50px;
-
-    font-size:17px;
-    color:white;
-
-
-}
-
-label{
-    display: inline-block;
-    vertical-align: baseline;
-    width: 200px;
-}
-
-input{
-    display: inline-block;
-    vertical-align: baseline;
-    width: 300px;
-}
-
-#b{
-    width:100px;
-    text-align:right;
-}
-
 fieldset{
     position:absolute;
     left:300px;
@@ -47,29 +42,38 @@ fieldset{
     margin:auto;
 
 }
+fieldset{
+    background:rgb(40,0,0);
+    text-align: left;
+    margin:auto;
+}
+
 form {
     width:300px;
 }
 form, input {
     box-sizing: border-box;
-
 }
-
+h1{
+    position:fixed;
+    top:20px;
+    left:650px;
+}
+input{
+    display: inline-block;
+    vertical-align: baseline;
+    width: 300px;
+}
 label{
-
+    display: inline-block;
+    vertical-align: baseline;
+    width: 200px;
     font-size: 15px;
 }
-fieldset{
-    background:rgb(40,0,0);
-    text-align: left;
-    margin:auto;
 
+
+
+table td, table th{
+    padding: 0;   
 }
-h1
-{
-    color:whitesmoke;
-    text-align:center;
-}
-table{
-    width:500px;
-}
+
