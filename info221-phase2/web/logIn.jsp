@@ -28,19 +28,20 @@ and open the template in the editor.
         <title> </title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         </head>
+    </head>
     <body>
 
         <h3><p><%=message%></p><!-- display the message to the user --></h3>
 
         <form action="LoginServlet" method="post">
-            <fieldset>
+            <fieldset  id='login'>
                 <legend> Login Details </legend>
                 <label> User Name:<input type="text" name="username"></label>
                 <label> Password:<input type="password" name="password"></label>
                 <button type="submit">Login</button>
             </fieldset>
         </form>
-        <p> Create a new <a href="/shopping/CreateAccount.jsp">new Account</a></p>
+        <p> 
+            Create a new <a href="/shopping/CreateAccount.jsp">new Account</a></p>
     </body>
 </html>

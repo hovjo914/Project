@@ -1,23 +1,45 @@
 <%-- any content can be specified here e.g.: --%>
 <%@page import="domain.Customer"%>
 <%@ page pageEncoding="UTF-8" %>
-
+<link rel="stylesheet" type="text/css" href="/shopping/style.css">
 <%
     Customer customer = (Customer) session.getAttribute("customer");
 
     if (customer == null) {
 %>
+<TABLE id='nm2' BORDER="0">
+    <TR>
+        <TD><FORM METHOD="LINK" ACTION="/shopping/logIn.jsp">
+                <INPUT TYPE="submit" VALUE="Log In">
+            </FORM></TD>
+    </TR>
+</TABLE>
 
-<a href="/shopping/logIn.jsp"><button type="button">Log In</a></button></li>
-
-<
 <%} else {%>
 
-<link rel="stylesheet" type="text/css" href="/shopping/style.css">
-<a href="/shopping/index.jsp"><button type="button">Home Page</button></a><br>
-<a href="/shopping/restricted/ViewProductList.jsp"><button type="button"> View Products</button> </a><br>
-<a href="/shopping/restricted/CheckOut.jsp"><button type="button">Check Out</button></a><br>
-<a href="/shopping/LogOut"><button type="button"> Log Out</button> </a></li><br>
+
+<TABLE id='nm'  BORDER="0">
+    <TR>
+
+        <TD><FORM METHOD="LINK" ACTION="/shopping/index.jsp">
+                <INPUT TYPE="submit" VALUE="Home Page">
+            </FORM></TD>
+
+        <TD><FORM METHOD="LINK" ACTION="/shopping/restricted/ViewProductList.jsp">
+                <INPUT TYPE="submit" VALUE="View Products">
+            </FORM></TD>
+
+        <TD><FORM METHOD="LINK" ACTION="/shopping/restricted/CheckOut.jsp">
+                <INPUT TYPE="submit" VALUE="Check Out">
+            </FORM></TD>
+
+        <TD><FORM METHOD="LINK" ACTION="/shopping/LogOut">
+                <INPUT TYPE="submit" VALUE="Log Out">
+            </FORM></TD>
+
+    </TR>
+
+</TABLE>
 
 
 

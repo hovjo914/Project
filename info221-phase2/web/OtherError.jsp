@@ -8,9 +8,9 @@
 <!DOCTYPE html>
 <%@page isErrorPage="true"%>
 <html>
-<body>
-<h1>Oops. Something unexpected happened.</h1>
-<p><%=exception.getMessage()%></p>
-<a href="javascript:history.back()">Back</a>
-</body>
+    <body>
+        <h1>Oops. Something unexpected happened.</h1>
+        <p><%=exception.getMessage()%></p>
+        <a href="javascript:history.back()">Back</a>
+    </body>
 </html

@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="/shopping/style.css">
 <html><body>
-        
+
         <h1> Products</h1>
         <% Collection<Product> products = new ProductJdbcDao().getAll();%>
         <table border="1">
@@ -26,24 +26,24 @@
             </thead>
             <tbody>
 
-              
+
 
                 <tr>
-                 <td><%= product.getProductID()%></td>
-                <td><%= product.getName()%></td>
-                <td><%= product.getDescription()%></td>
-                 <td><%= product.getCategory()%></td>
-                <td><%= product.getPrice()%></td>
-                <td><%= product.getQuantity()%> </td>
+                    <td><%= product.getProductID()%></td>
+                    <td><%= product.getName()%></td>
+                    <td><%= product.getDescription()%></td>
+                    <td><%= product.getCategory()%></td>
+                    <td><%= product.getPrice()%></td>
+                    <td><%= product.getQuantity()%> </td>
                 </tr>
 
                 <% }%>
 
             </tbody>
         </table>
-      
-            
-             <br>
+
+
+        <br>
         <br>
         <br>
         <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>

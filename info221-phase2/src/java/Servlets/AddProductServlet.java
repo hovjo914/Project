@@ -4,7 +4,6 @@
  */
 package Servlets;
 
-
 import dao.ProductJdbcDao;
 import domain.Product;
 import java.io.IOException;
@@ -25,8 +24,8 @@ public class AddProductServlet extends HttpServlet {
         String category = request.getParameter("category");
         double price = Double.parseDouble(request.getParameter("price"));
         int quantity = Integer.parseInt(request.getParameter("quantity"));
-       Product product;
-        product = new Product(productid,productname,description,category,price,quantity);
+        Product product;
+        product = new Product(productid, productname, description, category, price, quantity);
 
         new ProductJdbcDao().save(product);
         response.sendRedirect(".");

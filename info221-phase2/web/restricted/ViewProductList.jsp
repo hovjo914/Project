@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="/shopping/style.css">
 <html><body>
-        
+
         <h1> Products</h1>
         <% Collection<Product> products = new ProductJdbcDao().getAll();%>
         <table id='producttable' border="1">
@@ -20,7 +20,7 @@
                     <th>Description</th>
                     <th>Price</th>
                     <th>Quantity</th>
-                   
+
 
                 </tr>
             </thead>
@@ -29,21 +29,21 @@
                 <% for (Product product : products) {%>
 
                 <tr>
-                <td id='productid'><%= product.getProductID()%></td>
-                <td><%= product.getName()%></td>
-                <td><%= product.getDescription()%></td>
-                <td><%= product.getPrice()%></td>
-                <td><%= product.getQuantity()%> </td>
-                <td><a href="/restricted/Buy.jsp"><button type ='button'>Buy</a></button></td>
+                    <td id='productid'><%= product.getProductID()%></td>
+                    <td><%= product.getName()%></td>
+                    <td><%= product.getDescription()%></td>
+                    <td><%= product.getPrice()%></td>
+                    <td><%= product.getQuantity()%> </td>
+                    <td><a href="/restricted/Buy.jsp"><button type ='button'>Buy</a></button></td>
                 </tr>
 
                 <% }%>
 
             </tbody>
         </table>
-      
-            
-             <br>
+
+
+        <br>
         <br>
         <br>
         <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>

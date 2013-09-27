@@ -12,11 +12,22 @@
         <title><center>Login Page</center></title>
     </head>
     <body>
-         
-        <h1> Menu Heading Partial </h1>
-       
-        <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
+        <h1> Welcome to Prestige Equipment </h1>
+        <h3><%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %><h3>
+
+                <image id='equipment'src='/shopping/equipment.jpg' alt='equipment'>
+
+                <br>
+                <br>
+
+                <br>
+                <br>
+                <br>
+                <br>
 
 
-    </body>
-</html>
+
+                <br>
+                </body>
+
+                </html>

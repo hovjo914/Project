@@ -42,7 +42,7 @@
 
             </tbody>
         </table>
-                 <br>
+        <br>
         <br>
         <br>
         <%@include file = "/WEB-INF/jspf/NavigationMenu.jspf" %>
