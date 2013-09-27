@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package domain;
+import java.util.Date;
 
 /**
  *
@@ -11,7 +12,7 @@ package domain;
 public class Order {
 
     private Integer customer;
-    private Integer date;
+    private Date date;
 
     public Order(Customer cust) {
     }
@@ -24,18 +25,18 @@ public class Order {
         this.customer = orderID;
     }
 
-    public Integer getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
     // public Integer getTotal(){
     //    return ;
     //  public void addItem(orderItem){
-    public Order(Integer orderID, Integer date) {
+    public Order(Integer orderID, Date date) {
         this.customer = orderID;
         this.date = date;
     }
